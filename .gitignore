@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environments
+backend_env/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Build
+dist/
+build/
+
+# Python Cache
+.pytest_cache/
+
+# Trained Models
+models/*.pkl
+
+# Generated Outputs
+outputs/*.csv
+outputs/*.pkl
