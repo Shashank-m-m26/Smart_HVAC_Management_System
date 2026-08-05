@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from schemas import EnergyPredictionRequest
-from services.energy_service import predict_energy
+from backend.schemas import EnergyPredictionRequest
+from backend.services.energy_service import predict_energy
 
 router = APIRouter()
 

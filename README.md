@@ -1,48 +1,305 @@
-# Smart HVAC Management System
+# 🏢 Smart HVAC Energy & Maintenance Ticketing System
 
-An AI-powered Predictive Maintenance and Energy Optimization System for heating, ventilation, and air conditioning (HVAC) systems.
+> AI-powered HVAC monitoring platform for predictive maintenance and building energy analytics.
 
-## Project Structure
+---
 
+## 📌 Project Overview
+
+The **Smart HVAC Energy & Maintenance Ticketing System** is an AI-driven platform designed to improve HVAC monitoring by combining **fault detection** and **energy consumption prediction** into a single intelligent dashboard.
+
+The system continuously analyzes HVAC sensor readings, predicts equipment health, estimates building energy consumption, and generates maintenance recommendations through an interactive web dashboard.
+
+This project demonstrates how Artificial Intelligence can be integrated into Building Management Systems (BMS) to enable predictive maintenance and improve operational efficiency.
+
+---
+
+# 🚀 Features
+
+### 🤖 AI Fault Detection
+
+- Detects HVAC faults using Machine Learning
+- Binary classification:
+  - Healthy
+  - Fault Detected
+- Confidence score for every prediction
+
+---
+
+### ⚡ Energy Prediction
+
+Predicts building energy consumption using Building Genome data.
+
+Provides:
+
+- Estimated Energy Consumption
+- Building Energy Insights
+
+---
+
+### 📡 Live Monitoring Simulation
+
+Simulates a real-time IoT sensor stream using sequential HVAC sensor records.
+
+Updates every few seconds:
+
+- HVAC Status
+- Sensor Readings
+- AI Prediction
+- Confidence Score
+
+---
+
+### 🛠 Predictive Maintenance
+
+Automatically generates maintenance recommendations whenever a fault is detected.
+
+Displays:
+
+- Ticket Status
+- Priority
+- Recommendation
+- Assigned Maintenance Team
+
+---
+
+### 📊 Interactive Dashboard
+
+Modern enterprise dashboard built using Next.js and TailwindCSS.
+
+Includes:
+
+- HVAC Status
+- Energy Prediction
+- Live Sensor Readings
+- AI Confidence
+- Maintenance Ticket
+- Status Banner
+
+---
+
+# 🏗 System Architecture
+
+```text
+                    LBNL RTU Dataset
+                           │
+                           ▼
+                Fault Detection Model
+                           │
+                           ▼
+                 FastAPI Backend API
+                           │
+                           ▼
+                   Next.js Dashboard
+                           ▲
+                           │
+                Building Genome Dataset
+                           │
+                           ▼
+               Energy Prediction Model
 ```
-Smart_HVAC_System/
+
+---
+
+# 🧠 AI Models
+
+## 1. Fault Detection Model
+
+Dataset
+
+- LBNL RTU Fault Detection Dataset
+
+Algorithm
+
+- Random Forest Classifier
+
+Output
+
+- Healthy
+- Fault Detected
+
+---
+
+## 2. Energy Prediction Model
+
+Dataset
+
+- Building Genome Dataset
+
+Algorithm
+
+- Random Forest Regressor
+
+Output
+
+- Predicted Building Energy Consumption
+
+---
+
+# 💻 Technology Stack
+
+## Frontend
+
+- Next.js
+- React
+- TypeScript
+- TailwindCSS
+- Axios
+- Lucide React
+
+---
+
+## Backend
+
+- FastAPI
+- Python
+
+---
+
+## Machine Learning
+
+- Scikit-Learn
+- Pandas
+- NumPy
+- Joblib
+
+---
+
+# 📂 Datasets
+
+### Fault Detection
+
+- LBNL RTU Fault Detection Dataset
+
+Contains HVAC sensor readings collected from rooftop units under healthy and faulty operating conditions.
+
+---
+
+### Energy Prediction
+
+- Building Genome Dataset
+
+Contains:
+
+- Building Metadata
+- Weather Data
+- Electricity Consumption
+
+---
+
+# 📁 Project Structure
+
+```text
+Smart_HVAC_Management_System
 │
-├── datasets/                   # Raw and processed datasets (LBNL RTU, Building Genome, etc.)
-│   ├── Fault_detect dataset/
-│   └── Genome dataset/
+├── backend/
 │
-├── notebooks/                  # Jupyter Notebooks for exploration and modeling
-│   ├── 01_dataset_analysis.ipynb
-│   ├── 02_preprocessing.ipynb
-│   ├── 03_eda.ipynb
-│   ├── 04_feature_engineering.ipynb
-│   ├── 05_fault_model.ipynb
-│   └── 06_energy_model.ipynb
+├── frontend/
 │
-├── src/                        # Source code for the HVAC system pipeline
-│   ├── preprocessing/          # Data cleaning and ingestion
-│   ├── features/               # Feature extraction and engineering
-│   ├── models/                 # Model training and evaluation scripts
-│   ├── analytics/              # Performance analytics and reporting
-│   ├── utils/                  # Utility functions
-│   └── config/                 # Configuration files and constants
+├── models/
 │
-├── backend/                    # Backend API (e.g., FastAPI, Flask)
-├── frontend/                   # Frontend user interface (e.g., React, Vue)
-├── models/                     # Saved model artifacts (serialized .pkl, .h5, etc.)
-├── reports/                    # Generated project reports and analysis documentation
-├── outputs/                    # Output logs, figures, and export files
-└── README.md                   # Project documentation
+├── datasets/
+│
+│   ├── LBNL_RTU/
+│   ├── Building_Genome/
+│   └── demo/
+│
+├── src/
+├── notebooks/
+├── outputs/
+├── reports/
+│
+└── README.md
 ```
 
-## Getting Started
+---
 
-1. **Prerequisites**: Ensure you have Python 3.8+ installed.
-2. **Environment Setup**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use: venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
-3. **Data**: Place or verify raw datasets in the `datasets/` directory.
-4. **Notebooks**: Use the `notebooks/` directory to run interactive analyses step-by-step.
+# ⚙ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/Smart_HVAC_Management_System.git
+```
+
+Move into the project
+
+```bash
+cd Smart_HVAC_Management_System
+```
+
+Install backend dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Install frontend dependencies
+
+```bash
+cd frontend
+npm install
+```
+
+---
+
+# ▶ Running the Project
+
+Backend
+
+```bash
+uvicorn backend.main:app --reload
+```
+
+Frontend
+
+```bash
+cd frontend
+npm run dev
+```
+
+---
+
+# 🌐 API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/` | Health Check |
+| POST | `/predict/fault` | Fault Detection |
+| POST | `/predict/energy` | Energy Prediction |
+| GET | `/simulate/next` | Demo Sensor Stream |
+
+---
+
+# 📈 Dashboard Features
+
+✔ Live HVAC Monitoring
+
+✔ AI Fault Detection
+
+✔ Building Energy Prediction
+
+✔ Maintenance Ticket Generation
+
+✔ AI Confidence Score
+
+✔ Live Sensor Readings
+
+✔ Enterprise Dashboard
+
+---
+
+# 🔮 Future Improvements
+
+- IoT Sensor Integration
+- MQTT Support
+- Real-time Database
+- Email Notifications
+- Multi-building Monitoring
+- Fault Type Classification
+- Cloud Deployment
+
+---
+
+
+# ⭐ If you found this project useful, consider giving it a star!

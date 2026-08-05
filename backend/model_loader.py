@@ -1,5 +1,5 @@
 import joblib
-from config import FAULT_MODEL_PATH, ENERGY_MODEL_PATH
+from backend.config import FAULT_MODEL_PATH, ENERGY_MODEL_PATH
 
 print("Loading trained models...")
 print("-" * 50)

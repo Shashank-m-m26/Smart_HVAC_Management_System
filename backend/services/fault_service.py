@@ -1,6 +1,6 @@
 import pandas as pd
 
-from model_loader import get_fault_model
+from backend.model_loader import get_fault_model
 
 fault_model = get_fault_model()
 

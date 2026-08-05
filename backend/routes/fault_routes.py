@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from schemas import FaultPredictionRequest
-from services.fault_service import predict_fault
+from backend.schemas import FaultPredictionRequest
+from backend.services.fault_service import predict_fault
 
 router = APIRouter()
 

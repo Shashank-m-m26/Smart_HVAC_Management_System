@@ -1,6 +1,6 @@
 import pandas as pd
 
-from model_loader import get_energy_model
+from backend.model_loader import get_energy_model
 
 energy_model = get_energy_model()
 
