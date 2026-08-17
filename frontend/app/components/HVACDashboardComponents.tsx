@@ -43,11 +43,10 @@ export const DashboardHeader: React.FC<{ title: string; subtitle: string }> = ({
         <button
           onClick={startMonitoring}
           disabled={isMonitoringActive}
-          className={`relative group px-6 py-3 rounded-xl font-bold flex items-center gap-2 overflow-hidden transition-all duration-300 ${
-            isMonitoringActive
-              ? "bg-slate-800/80 text-slate-400 cursor-not-allowed border border-slate-700/50"
-              : "bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] active:scale-98"
-          }`}
+          className={`relative group px-6 py-3 rounded-xl font-bold flex items-center gap-2 overflow-hidden transition-all duration-300 ${isMonitoringActive
+            ? "bg-slate-800/80 text-slate-400 cursor-not-allowed border border-slate-700/50"
+            : "bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] active:scale-98"
+            }`}
         >
           {isMonitoringActive ? (
             <>
@@ -74,22 +73,20 @@ export const StatusBanner: React.FC = () => {
   const { status } = useHVAC();
   return (
     <div
-      className={`glass-panel rounded-2xl p-5 flex items-center justify-between transition-all duration-500 shadow-xl overflow-hidden relative group ${
-        status === "Healthy"
-          ? "glass-panel-green pulse-green bg-green-950/20"
-          : status === "Not Monitoring"
+      className={`glass-panel rounded-2xl p-5 flex items-center justify-between transition-all duration-500 shadow-xl overflow-hidden relative group ${status === "Healthy"
+        ? "glass-panel-green pulse-green bg-green-950/20"
+        : status === "Not Monitoring"
           ? "pulse-gray bg-slate-900/40"
           : "glass-panel-red pulse-red bg-red-950/20"
-      }`}
+        }`}
     >
       <div className="flex items-center gap-4 z-10">
-        <div className={`p-3 rounded-xl ${
-          status === "Healthy"
-            ? "bg-green-500/10 text-green-400 border border-green-500/20"
-            : status === "Not Monitoring"
+        <div className={`p-3 rounded-xl ${status === "Healthy"
+          ? "bg-green-500/10 text-green-400 border border-green-500/20"
+          : status === "Not Monitoring"
             ? "bg-slate-500/10 text-slate-400 border border-slate-500/20"
             : "bg-red-500/10 text-red-400 border border-red-500/20"
-        }`}>
+          }`}>
           {status === "Healthy" ? (
             <CheckCircle2 className="w-6 h-6 animate-bounce" />
           ) : status === "Not Monitoring" ? (
@@ -102,18 +99,17 @@ export const StatusBanner: React.FC = () => {
           <span className="text-xs font-semibold tracking-wider text-slate-400 uppercase">
             Current System Status
           </span>
-          <h2 className={`text-xl font-bold tracking-tight mt-0.5 ${
-            status === "Healthy"
-              ? "text-green-400"
-              : status === "Not Monitoring"
+          <h2 className={`text-xl font-bold tracking-tight mt-0.5 ${status === "Healthy"
+            ? "text-green-400"
+            : status === "Not Monitoring"
               ? "text-slate-300"
               : "text-red-400"
-          }`}>
+            }`}>
             {status === "Healthy"
               ? "HVAC System Operating Normally"
               : status === "Not Monitoring"
-              ? "Waiting to Start Monitoring"
-              : "Fault Detected - Immediate Maintenance Required"}
+                ? "Waiting to Start Monitoring"
+                : "Fault Detected - Immediate Maintenance Required"}
           </h2>
         </div>
       </div>
@@ -140,23 +136,21 @@ export const MetricCards: React.FC = () => {
             <span className="text-xs font-semibold tracking-wider text-slate-400 uppercase">
               HVAC Status
             </span>
-            <span className={`p-1.5 rounded-lg ${
-              status === "Healthy"
-                ? "bg-green-500/10 text-green-400"
-                : status === "Not Monitoring"
+            <span className={`p-1.5 rounded-lg ${status === "Healthy"
+              ? "bg-green-500/10 text-green-400"
+              : status === "Not Monitoring"
                 ? "bg-slate-500/10 text-slate-400"
                 : "bg-red-500/10 text-red-400"
-            }`}>
+              }`}>
               <Activity className="w-4 h-4" />
             </span>
           </div>
-          <h3 className={`text-2xl font-black mt-4 tracking-tight ${
-            status === "Healthy"
-              ? "text-green-400"
-              : status === "Not Monitoring"
+          <h3 className={`text-2xl font-black mt-4 tracking-tight ${status === "Healthy"
+            ? "text-green-400"
+            : status === "Not Monitoring"
               ? "text-slate-400"
               : "text-red-400"
-          }`}>
+            }`}>
             {status}
           </h3>
         </div>
@@ -249,19 +243,17 @@ export const MetricCards: React.FC = () => {
             <span className="text-xs font-semibold tracking-wider text-slate-400 uppercase">
               Maintenance
             </span>
-            <span className={`p-1.5 rounded-lg ${
-              status === "Healthy"
-                ? "bg-emerald-500/10 text-emerald-400"
-                : status === "Not Monitoring"
+            <span className={`p-1.5 rounded-lg ${status === "Healthy"
+              ? "bg-emerald-500/10 text-emerald-400"
+              : status === "Not Monitoring"
                 ? "bg-slate-500/10 text-slate-400"
                 : "bg-red-500/10 text-red-400"
-            }`}>
+              }`}>
               <Wrench className="w-4 h-4" />
             </span>
           </div>
-          <h3 className={`text-base font-bold mt-4 tracking-tight line-clamp-1 ${
-            status === "Healthy" ? "text-emerald-400" : status === "Not Monitoring" ? "text-slate-400" : "text-red-400 animate-pulse"
-          }`}>
+          <h3 className={`text-base font-bold mt-4 tracking-tight line-clamp-1 ${status === "Healthy" ? "text-emerald-400" : status === "Not Monitoring" ? "text-slate-400" : "text-red-400 animate-pulse"
+            }`}>
             {ticket}
           </h3>
         </div>
@@ -276,6 +268,12 @@ export const MetricCards: React.FC = () => {
 // Live Sensor Panel
 export const LiveSensorPanel: React.FC = () => {
   const { sensorData, isMonitoringActive } = useHVAC();
+
+  const formatValue = (value: number | string | undefined) => {
+    if (value === undefined || value === null) return "--";
+    return Number(value).toFixed(2);
+  };
+
   return (
     <div className="glass-panel rounded-3xl p-6 border-slate-800 flex flex-col justify-between shadow-2xl relative overflow-hidden h-full">
       <div className="absolute -right-16 -top-16 w-36 h-36 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -306,7 +304,7 @@ export const LiveSensorPanel: React.FC = () => {
                 <div>
                   <span className="text-xs text-slate-400 font-medium block">Compressor Power</span>
                   <span className="text-lg font-black text-slate-200 mt-0.5 block">
-                    {Number(sensorData.RTU_COMP_WATT).toFixed(2)}
+                    {formatValue(sensorData.RTU_COMP_WATT)}
                     <span className="text-xs text-slate-500 font-bold ml-1">W</span>
                   </span>
                 </div>
@@ -322,7 +320,7 @@ export const LiveSensorPanel: React.FC = () => {
                 <div>
                   <span className="text-xs text-slate-400 font-medium block">Outdoor Temp</span>
                   <span className="text-lg font-black text-slate-200 mt-0.5 block">
-                    {Number(sensorData.RTU_OA_TEMP).toFixed(2)}
+                    {formatValue(sensorData.RTU_OA_TEMP)}
                     <span className="text-xs text-slate-500 font-bold ml-1">°C</span>
                   </span>
                 </div>
@@ -338,7 +336,7 @@ export const LiveSensorPanel: React.FC = () => {
                 <div>
                   <span className="text-xs text-slate-400 font-medium block">Supply Air Temp</span>
                   <span className="text-lg font-black text-slate-200 mt-0.5 block">
-                    {Number(sensorData.RTU_SA_TEMP).toFixed(2)}
+                    {formatValue(sensorData.RTU_SA_TEMP)}
                     <span className="text-xs text-slate-500 font-bold ml-1">°C</span>
                   </span>
                 </div>
@@ -354,8 +352,8 @@ export const LiveSensorPanel: React.FC = () => {
                 <div>
                   <span className="text-xs text-slate-400 font-medium block">Condenser Pressure</span>
                   <span className="text-lg font-black text-slate-200 mt-0.5 block">
-                    {Number(sensorData.RTU_REFG_COND_PRES).toFixed(2)}
-                    <span className="text-xs text-slate-500 font-bold ml-1">Pa</span>
+                    {formatValue(sensorData.RTU_REFG_COND_PRES !== undefined && sensorData.RTU_REFG_COND_PRES !== null ? Number(sensorData.RTU_REFG_COND_PRES) / 1000000 : undefined)}
+                    <span className="text-xs text-slate-500 font-bold ml-1">MPa</span>
                   </span>
                 </div>
               </div>
@@ -371,7 +369,7 @@ export const LiveSensorPanel: React.FC = () => {
                   <span className="text-xs text-slate-400 font-medium block">Total Power Consumption</span>
                   <div className="flex items-baseline gap-2 mt-0.5">
                     <span className="text-2xl font-black text-emerald-400">
-                      {Number(sensorData.RTU_TOT_WATT).toFixed(2)}
+                      {formatValue(sensorData.RTU_TOT_WATT)}
                     </span>
                     <span className="text-xs text-slate-500 font-bold">W</span>
                   </div>
@@ -432,13 +430,12 @@ export const MaintenanceTicket: React.FC = () => {
             <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider flex items-center gap-1.5">
               <Activity className="w-3.5 h-3.5 text-slate-500" /> Status
             </span>
-            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold ${
-              status === "Healthy"
-                ? "bg-slate-800 text-slate-400 border border-slate-700/60"
-                : status === "Not Monitoring"
+            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold ${status === "Healthy"
+              ? "bg-slate-800 text-slate-400 border border-slate-700/60"
+              : status === "Not Monitoring"
                 ? "bg-slate-900 text-slate-500 border border-slate-800/80"
                 : "bg-red-500/10 text-red-400 border border-red-500/20"
-            }`}>
+              }`}>
               {status === "Healthy" ? "CLOSED" : status === "Not Monitoring" ? "--" : "OPEN"}
             </span>
           </div>
@@ -447,13 +444,12 @@ export const MaintenanceTicket: React.FC = () => {
             <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider flex items-center gap-1.5">
               <ShieldAlert className="w-3.5 h-3.5 text-slate-500" /> Priority
             </span>
-            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold ${
-              status === "Healthy"
-                ? "bg-slate-800 text-slate-400 border border-slate-700/60"
-                : status === "Not Monitoring"
+            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold ${status === "Healthy"
+              ? "bg-slate-800 text-slate-400 border border-slate-700/60"
+              : status === "Not Monitoring"
                 ? "bg-slate-900 text-slate-500 border border-slate-800/80"
                 : "bg-red-500/20 text-red-300 border border-red-500/30"
-            }`}>
+              }`}>
               {status === "Healthy" ? "LOW" : status === "Not Monitoring" ? "--" : "HIGH"}
             </span>
           </div>
@@ -469,18 +465,17 @@ export const MaintenanceTicket: React.FC = () => {
             <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
               Recommendation
             </span>
-            <div className={`p-3.5 rounded-xl border text-sm font-medium ${
-              status === "Healthy"
-                ? "bg-emerald-950/10 border-emerald-900/30 text-emerald-400/90"
-                : status === "Not Monitoring"
+            <div className={`p-3.5 rounded-xl border text-sm font-medium ${status === "Healthy"
+              ? "bg-emerald-950/10 border-emerald-900/30 text-emerald-400/90"
+              : status === "Not Monitoring"
                 ? "bg-slate-900/40 border-slate-800/80 text-slate-400"
                 : "bg-red-950/20 border-red-900/40 text-red-400/90"
-            }`}>
+              }`}>
               {status === "Healthy"
                 ? "System running optimally. No action required."
                 : status === "Not Monitoring"
-                ? "Awaiting system startup to run predictive analysis."
-                : "Inspect HVAC Unit Compressor and Refrigerant loop immediately."}
+                  ? "Awaiting system startup to run predictive analysis."
+                  : "Inspect HVAC Unit Compressor and Refrigerant loop immediately."}
             </div>
           </div>
         </div>
